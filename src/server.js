@@ -9,9 +9,6 @@ let app = express();
 //config body-parser to post data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.set('view engine','ejs'); 
-
-app.engine('ejs', require('ejs').__express);
 
 app.use((req, res, next) => {
     res.setHeader(
@@ -26,7 +23,7 @@ configViewEngine(app);
 //config web routes
 initWebRoutes(app);
 
-let port = process.env.PadORT || 8081;
+let port = process.env.PORT || 8081;
 
 app.listen(port, () => {
     console.log(`Messenger bot is running at the port ${port}`);
