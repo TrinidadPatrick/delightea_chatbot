@@ -9,7 +9,9 @@ let app = express();
 //config body-parser to post data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.set('view engine','ejs'); 
 
+app.engine('ejs', require('ejs').__express);
 
 app.use((req, res, next) => {
     res.setHeader(
